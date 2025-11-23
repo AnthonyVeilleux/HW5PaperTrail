@@ -1,34 +1,73 @@
-# DevOps Exercise
+# DevOps Sorting Package – CI/CD Pipeline
 
-This is a skeleton repository for your exercise. 
-The goal of this exercise is to implement a Python package for sorting integer 
-lists using the DevOps software development approach.
+[![CI](https://github.com/<YOUR-USERNAME>/<YOUR-REPO>/actions/workflows/ci.yml/badge.svg)](https://github.com/<YOUR-USERNAME>/<YOUR-REPO>/actions)
 
-> **Warning**: If working on windows, some directories and files in this archive
-will not be visible because they start with a '.'. In the file browser, change 
-the View to display "Hidden items".
+## Overview
+This repository implements a Python package that provides three sorting algorithms—**Bubble Sort**, **Quick Sort**, and **Insertion Sort**—each instrumented to measure a different system performance metric using `psutil`. The project follows a full DevOps CI/CD workflow, including automated testing, linting, formatting, performance measurement, and multi-platform GitHub Actions pipelines.
 
-You will need to:
-1. Add .pre-commit-config.yml which:  
-    1. Limits maximal file size.
-    1. Runs the black and flake8 linters.
-    1. Detect presence of aws credentials private keys.    
-1. Implement the algorithms for bubble, quick and insertion sort, see sort_lib directory,
-code should be documented using standard Python practices (there are several [docstring 
-styles](https://stackoverflow.com/questions/3898572/what-is-the-standard-python-docstring-format)
-select one and be consistent).
-1. Implement testing using the [pytest](https://docs.pytest.org/en/6.2.x/) framework, see test directory.
-1. Implement linting, style checking using both [flake8](https://flake8.pycqa.org/en/latest/) and 
-[black](https://black.readthedocs.io/en/stable/). 
-1. Modify the GitHub actions workflow so that it tests and builds the package for all 
-three operating systems (OSX/Linux/Win) and for Python versions 3.9 and 3.10. Read more about [Distributing Python packages](https://docs.python.org/3/distributing/index.html).
-1. Modify this file to describe this repository and the DevOps workflow you implemented (add badges to this file showing testing status).
-1. **Optional**: Add a job to the workflow which uploads the wheel to [TestPyPI](https://test.pypi.org/). As every package on TestPyPI is required to have a unique name you need to update the UNIQUE_SUFFIX both in the directory name and in the .toml file. Possibly use your team number.
-    >**Warning**: Do not upload to the authoritative Python Package Index (PyPI).  
+---
 
+## Features
 
-Possible work division, three sub-teams:
-1. Adding pre-commit and implementing algorithm code and documentation (tasks 1,2,6).
-1. Implementing testing code, mastering pytest, black, flake8 (tasks 3,4,6).
-1. Understanding pytest, black, flake8 and mastering GitHub workflows (tasks 5,6).
+### Sorting Algorithms
+| Algorithm          | Metric Measured | Description                                      |
+|--------------------|-----------------|--------------------------------------------------|
+| Bubble Sort        | CPU Usage       | Measures CPU consumption throughout execution    |
+| Quick Sort         | Runtime         | Measures algorithm execution time                |
+| Insertion Sort     | Memory Usage    | Measures memory allocation during sorting        |
 
+All algorithms follow consistent Python docstring conventions and are located in `sort_lib/`.
+
+---
+
+## Development Tools & Frameworks
+- **pytest** – automated testing  
+- **flake8** – style & lint checking  
+- **black** – code formatting  
+- **psutil** – system metrics  
+- **GitHub Actions** – CI/CD automation  
+- **pre-commit** – local linting, formatting, security checks  
+
+---
+
+## CI/CD Workflow
+
+A GitHub Actions pipeline (located in `.github/workflows/ci.yml`) runs:
+
+### Linting & Formatting
+- black (formatting)
+- flake8 (linting)
+- file size checks
+- AWS/private key detection via pre-commit
+
+### Automated Testing
+- pytest runs on all sorting algorithms  
+- validates correctness & performance  
+
+### Multi-Platform Matrix Build
+Tested across:
+
+- **OS:** Ubuntu, macOS, Windows  
+- **Python Versions:** 3.9, 3.10  
+
+### Optional Deployment
+A TestPyPI upload job can be enabled, requiring a unique package suffix.
+
+---
+
+## Performance Comparison
+
+| OS      | Python Version | Bubble (CPU%) | Quick (ms) | Insertion (Memory KB) |
+|---------|----------------|----------------|-------------|-------------------------|
+| Ubuntu  | 3.9            | …              | …           | …                       |
+| Ubuntu  | 3.10           | …              | …           | …                       |
+| macOS   | 3.9            | …              | …           | …                       |
+| macOS   | 3.10           | …              | …           | …                       |
+| Windows | 3.9            | …              | …           | …                       |
+| Windows | 3.10           | …              | …           | …                       |
+
+---
+
+## Installation
+```bash
+pip install .
