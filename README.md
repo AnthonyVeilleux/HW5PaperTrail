@@ -59,12 +59,12 @@ A TestPyPI upload job can be enabled, requiring a unique package suffix.
 
 | OS      | Python Version | Bubble (CPU%) | Quick (ms) | Insertion (Memory KB) |
 |---------|----------------|----------------|-------------|-------------------------|
-| Ubuntu  | 3.9            | …              | …           | …                       |
-| Ubuntu  | 3.10           | …              | …           | …                       |
-| macOS   | 3.9            | …              | …           | …                       |
-| macOS   | 3.10           | …              | …           | …                       |
-| Windows | 3.9            | …              | …           | …                       |
-| Windows | 3.10           | …              | …           | …                       |
+| Ubuntu  | 3.9            | 1.3            | 5.34        | 52.3                    |
+| Ubuntu  | 3.10           | 1.3            | 6.67        | 50.5                    |
+| macOS   | 3.9            | 9.3            | 6.19        | 46.7                    |
+| macOS   | 3.10           | 9.1            | 5.96        | 46.3                    |
+| Windows | 3.9            | 1.3            | 5.96        | 49.9                    |
+| Windows | 3.10           | 1.2            | 5.76        | 48.7                    |
 
 ---
 
