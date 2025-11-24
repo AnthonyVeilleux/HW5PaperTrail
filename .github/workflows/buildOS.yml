@@ -23,6 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest black flake8 psutil
+          pip install -e .
       - name: Run linters (flake8, black)
         run: |
           echo "Running flake8..."
